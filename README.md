@@ -1,56 +1,73 @@
-# GitHub Repo Template
+# Open WebUI Setup
 
-Welcome to the Template Repository on GitHub! This repository is designed to serve as a starting point for creating new Git repositories with best practices and configurations already set up. Below is a brief overview of the structure and the purpose of each file and directory in this repository.
+This repository provides a simple setup for running the Open WebUI using Docker Compose.
 
-## Repository Structure
+## Prerequisites
 
-```text
-.
-├── .editorconfig
-├── .github
-│   ├── ISSUE_TEMPLATE
-│   │   └── issue_template.md
-│   ├── dependabot.yml
-│   ├── pull_request_template.md
-│   └── workflows
-│       ├── hello_world.yaml
-│       └── stale.yaml
-├── .gitignore
-├── .pre-commit-config.yaml
-├── .vscode
-│   └── extensions.json
-├── CODEOWNERS
-├── LICENSE
-└── README.md
+Before you start, ensure that you have the following installed on your machine:
+
+- Docker
+- Docker Compose
+
+## Getting Started
+
+1. Clone the Repository
+```bash
+git clone https://github.com/duyl97/open-webui.git
+cd open-webui
 ```
 
-## Key Files and Directories
+2. Copy Environment File
+Before starting the services, you need to create a .env file by copying the provided .env.example file:
 
-- .editorconfig: This file helps maintain consistent coding styles between different editors and IDEs by defining rules such as indentation, line endings, and character encoding.
+```bash
+cp .env.example .env
+```
 
-- .github/: This directory contains GitHub-specific configuration files:
+Make sure to update the .env file with any necessary environment-specific configurations.
 
-  - ISSUE_TEMPLATE/: A template for creating consistent issue reports.
-  - dependabot.yml: Configuration for Dependabot, which helps keep your dependencies up-to-date.
-  - pull_request_template.md: A template for pull requests to ensure all necessary information is provided.
-  - workflows/: Contains GitHub Actions workflows such as hello_world.yaml (a sample workflow) and stale.yaml (to mark inactive issues or PRs as stale).
+3. Run Docker Compose
+To start the Open WebUI, run:
 
-- .gitignore: Specifies files and directories that should be ignored by Git, preventing them from being tracked in the repository.
+```bash
+docker-compose up -d
+```
 
-- .pre-commit-config.yaml: Configuration for the Pre-commit tool, which runs checks on your code before commits. This helps maintain code quality and consistency.
+This command will build and start all the services defined in the docker-compose.yml file.
 
-- .vscode/: Contains Visual Studio Code-specific settings, such as recommended extensions listed in extensions.json, to ensure a consistent development environment across team members.
+4. Access the WebUI
+Once the services are up and running, open your browser and navigate to:
 
-- CODEOWNERS: Defines the individuals or teams responsible for specific files or directories in the repository, ensuring that code reviews and changes are handled by the appropriate people.
+```bash
+http://localhost:3000
+```
 
-- LICENSE: A file that specifies the licensing terms under which the repository's content can be used. Make sure to update this with the appropriate license for your project.
+## Configuration
 
-- README.md: The file you are currently reading. This file provides an overview of the project, its structure, and instructions on how to use it.
+If you need to customize the setup (e.g., environment variables, port numbers), modify the .env file or the `docker-compose.yml` file.
 
-## Contributing
+## Create a Pipe function to connect with Azure OpenAI models
 
-If you find any issues or have suggestions for improving this template repository, please feel free to open an issue or submit a pull request. Contributions are always welcome!
+Use the shared function [Azure OpenAI](https://openwebui.com/f/nomppy/azure).
+
+## Stopping the Services
+
+To stop the running services, use:
+
+```bash
+docker-compose down -v
+```
+
+This will stop and remove the containers.
+
+## Troubleshooting
+
+If you encounter any issues, ensure that Docker and Docker Compose are installed correctly and running. For further issues, please check the logs:
+
+```bash
+docker-compose logs
+```
 
 ## License
 
-This repository is licensed under the MIT License. See the LICENSE file for more information.
+This project is licensed under the MIT License - see the LICENSE file for details.
