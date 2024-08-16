@@ -1,4 +1,5 @@
 # Open WebUI Setup
+[Open WebUI](https://docs.openwebui.com/) is an extensible, feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline. It supports various LLM runners, including Ollama and OpenAI-compatible APIs.
 
 This repository provides a simple setup for running the Open WebUI using Docker Compose.
 
