@@ -8,7 +8,27 @@ services:
       - open-webui:/app/backend/data
     ports:
       - "3000:8080"
+    networks:
+      - llm-network
     restart: always
+
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm
+    env_file:
+      - .env
+    volumes:
+      - ./litellm/config.yaml:/app/config.yaml
+    ports:
+      - "4000:4000"
+    networks:
+      - llm-network
+    restart: always
+    command: --config /app/config.yaml --port 4000
 
 volumes:
   open-webui:
+
+networks:
+  llm-network:
+    driver: bridge
