@@ -47,9 +47,13 @@ http://localhost:3000
 
 If you need to customize the setup (e.g., environment variables, port numbers), modify the .env file or the `docker-compose.yml` file.
 
-## Create a Pipe function to connect with Azure OpenAI models
+## Creating a Pipe function to connect with Azure OpenAI models
 
 Use the shared function [Azure OpenAI](https://openwebui.com/f/nomppy/azure).
+
+## Integrate with LiteLLM Proxy
+
+The alternative of the function is [LiteLLM Proxy](https://github.com/BerriAI/litellm), which allows to call all LLM APIs using the OpenAI format (Bedrock, Huggingface, VertexAI, TogetherAI, Azure, OpenAI, Groq etc.).
 
 ## Stopping the Services
 
